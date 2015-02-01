@@ -12,6 +12,7 @@ ActiveRecord::Base.establish_connection(
     :adapter => 'sqlite3',
     :database => 'posts.db'
     )
+ActiveRecord::Base.default_timezone = :local
 
 require_relative 'post'
 ### Error Check ###
@@ -39,14 +40,15 @@ end
 ### Index ###
 
 get '/posts' do
-    @posts = Post.all.order(:datewritten)
+    @allposts = Post.all
+    @posts = @allposts.order(:created_at)
     erb :index
 end
 
 ### Posts by topic ###
 
-get '/posts/topics/:topic_name' do
-    @posts =  Post.where(:topic => params[:topic])
+get '/posts/topic/:topic_name' do
+    @posts = Post.where(:topic => params[:topic_name])
     erb :index
 end
 
@@ -72,6 +74,8 @@ end
 
 get '/posts/:id' do
     @post = Post.find_by(:id => params[:id])
+    @time = @post.created_at.to_time.strftime("Created on %A, %e %B %Y at %I:%M%p")
+    @updatetime = @post.updated_at.to_time.strftime("Updated on %A, %e %B %Y at %I:%M%p")
     erb :read
 end
 
@@ -79,7 +83,6 @@ end
 
 get '/posts/:id/edit' do
     @post = Post.find params[:id]
-
     erb :edit
 end
 

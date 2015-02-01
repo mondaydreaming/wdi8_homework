@@ -19,11 +19,11 @@
         </nav>
          <nav class="side">
              <ul>
-                <li>Topics</li>
+                <li>Topic</li>
                  <% @topics.each do |topic| %>
                  <li>
-                    <a href="/posts/topics/<%=topic["topic"]%>"> 
-                    <%=topic["topic"]%>
+                    <a href="/posts/topic/<%=topic.topic%>"> 
+                    <%=topic.topic%>
                     </a>
                 </li>
                 <%end%>

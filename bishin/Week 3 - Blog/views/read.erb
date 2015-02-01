@@ -1,6 +1,12 @@
 <h2><%=@post.title%></h2>
 
 <pre>
+    <%=@time%>
+
+    <% if @updatetime != "false" %>
+    <%=@updatetime%>
+    <%end%>
+
     <img src="<%=@post.image%>">
     <%= @post.topic %>
     <%= @post.entry %>
