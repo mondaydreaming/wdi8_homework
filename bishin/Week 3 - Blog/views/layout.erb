@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        
+        <header>
+                <h1>Carte Postale</h1>
+        </header>
+        <nav class="header">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/posts">All posts</a></li>
+                <li><a href="/posts/create">New post</a></li>
+            </ul>
+        </nav>
+         <nav class="side">
+             <ul>
+                <li>Topics</li>
+                 <% @topics.each do |topic| %>
+                 <li>
+                    <a href="/posts/topics/<%=topic["topic"]%>"> 
+                    <%=topic["topic"]%>
+                    </a>
+                </li>
+                <%end%>
+             </ul>
+         </nav>
+
+        <div class="content"></div>
+        <footer></footer>
+        <%=yield%>
+    </div>
+</body>
+</html>

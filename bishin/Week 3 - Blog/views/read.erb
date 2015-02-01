@@ -1,0 +1,12 @@
+<h2><%=@post.title%></h2>
+
+<pre>
+    <img src="<%=@post.image%>">
+    <%= @post.topic %>
+    <%= @post.entry %>
+</pre>
+
+<div class="controls">
+    <a href="/posts/<%=@post.id%>/edit">Edit post</a>
+    <a href="/posts/<%=@post.id%>/delete">Delete post</a>
+</div>

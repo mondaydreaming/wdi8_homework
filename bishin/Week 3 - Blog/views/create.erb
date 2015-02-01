@@ -1,0 +1,21 @@
+<h2>Create a new post</h2>
+<form action="/posts" method="post">
+    <pre>
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" placeholder="Wish you were here" size="35" required>
+
+<!--         <label for="date">Date</label>
+        <input type="date" name="date" input="date" required> -->
+
+        <label for="image">Attach picture (optional) </label>
+        <input type="url" name="image" id="image" placeholder="Enter URL here" size="35">    
+
+        <label for="entry">Entry</label>
+        <textarea name="entry" id="entry" cols="30" rows="10" placeholder="Dear mom..." required></textarea>
+       
+        <label for="topic">Topic</label>
+        <input type="text" name="topic" id="topic" placeholder="#scenic" required>
+
+        <input type="submit" value="Create new post">
+    </pre>
+</form>
