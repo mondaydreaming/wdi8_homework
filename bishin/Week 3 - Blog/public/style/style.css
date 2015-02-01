@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+
 .rgba-primary-0 { color: rgba( 43,124,127,1) }  /* Main Primary color */
 .rgba-primary-1 { color: rgba(119,182,185,1) }
 .rgba-primary-2 { color: rgba( 70,145,148,1) }
@@ -5,21 +7,111 @@
 .rgba-primary-4 { color: rgba(  8, 83, 87,1) }
 
 body {
-
+font-family: 'pacifico';
+background-image: url("../images/airplane-business-clouds-185.jpg");
+background-position: static;
+background-size: cover;
 }
 
 .container {
-
+    margin: auto;
+    text-align: center;
 }
 
 header {
+margin-top: 2em;
+background-color: rgba( 43,124,127,0.5);
+padding: 0.5em 0em 0.5em 0em;
+border-radius: 5px;
+}
 
+img {
+    padding: 0px 2px 0px 2px;
+}
+
+ul {
+    padding: 0.25%;
+}
+
+ul .origincards {
+    padding: 0px;
+    margin: 0px;
+    text-align: left;
+}
+
+nav li {
+    display: inline-block;
+    list-style-type: none;  
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'helvetica';
 }
 
 .content {
-
+    font-family: 'American Typewriter';
+    text-align: left;
+    display: block;
+    margin-left: 15%;
+    margin-right:15%;
+    background-color: rgba( 43,124,127,0.7);
+    padding:2% 5% 2% 5%;
+}
+.align {
+    display: inline-block;
 }
 
 footer {
-
+    font-size: 12px;
+    margin-bottom: 1em;
 }
+
+.postcardimage {
+    width: 300px;
+    height: auto;
+    display: inline-block;
+}
+
+.postcardtext {
+    display: inline-block;
+    width: 40%;
+    height: auto;
+    padding-left: 5%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.entirecard {
+    vertical-align: top;
+}
+
+.controls {
+    text-align: right;
+    font-size: 12px;
+    font-family: 'helvetica';
+    font-weight: bold;
+}
+
+.tab {
+    margin-right: 2em;
+}
+
+.locale {
+    text-align: left;
+    padding: 0px;
+    margin: 2%;
+}
+
+
+
+

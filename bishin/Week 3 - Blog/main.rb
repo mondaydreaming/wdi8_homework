@@ -5,6 +5,7 @@ require 'sinatra/reloader'
 require 'pry'
 require 'active_record'
 require 'sqlite3'
+require 'countries'
 
 ### Active Record Set Up ###
 ActiveRecord::Base.logger = Logger.new(STDERR)
@@ -24,7 +25,7 @@ end
 ### All pages ###
 
 before do
-    @topics = Post.select(:topic).uniq
+    @countries = Post.select(:country).uniq
 end
 
 after do
@@ -45,10 +46,11 @@ get '/posts' do
     erb :index
 end
 
-### Posts by topic ###
+### Posts by country ###
 
-get '/posts/topic/:topic_name' do
-    @posts = Post.where(:topic => params[:topic_name])
+get '/posts/origin/:name' do
+    @allposts= Post.all
+    @posts = Post.where(:country => params[:name])
     erb :index
 end
 
@@ -60,10 +62,12 @@ end
 
 post '/posts' do
     post = Post.new
-    post.title = params[:title]
-    post.entry = params[:entry]
+    post.subject = params[:subject]
+    post.message = params[:message]
     post.image = params[:image]
-    post.topic = params[:topic]
+    post.country = params[:country]
+    post.sender = params[:sender]
+    post.recipient = params[:recipient]
 
     post.save
 
@@ -88,10 +92,12 @@ end
 
 post '/posts/:id' do
     post = Post.find params[:id]
-    post.title = params[:title]
-    post.entry = params[:entry]
+    post.subject = params[:subject]
+    post.message = params[:message]
     post.image = params[:image]
-    post.topic = params[:topic]
+    post.country = params[:country]
+    post.sender = params[:sender]
+    post.recipient = params[:recipient]
 
     post.save
 

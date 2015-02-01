@@ -1,18 +1,25 @@
-<h2><%=@post.title%></h2>
-
+<h2><%=@post.subject%></h2>
 <pre>
     <%=@time%>
-
     <% if @updatetime != "false" %>
     <%=@updatetime%>
     <%end%>
-
-    <img src="<%=@post.image%>">
-    <%= @post.topic %>
-    <%= @post.entry %>
 </pre>
 
+<div class="entirecard">
+<div class="postcardtext">
+    <img class="postcardimage" src="<%=@post.image%>">
+</div>  
+
+<div class="postcardtext">
+    <p class="bold">From: <%=@post.sender%></p>
+    <p class="bold">To: <%=@post.recipient%></p>
+    <p class="bold">Sent from: <%= @post.country %></p>
+    <P><%= @post.message %></P>
+</div>
+</div>
+
 <div class="controls">
-    <a href="/posts/<%=@post.id%>/edit">Edit post</a>
-    <a href="/posts/<%=@post.id%>/delete">Delete post</a>
+    <a class="tab" href="/posts/<%=@post.id%>/edit">Edit postcard</a>
+    <a class="tab" href="/posts/<%=@post.id%>/delete">Throw out postcard</a>
 </div>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/style/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -12,27 +13,30 @@
         </header>
         <nav class="header">
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/posts">All posts</a></li>
-                <li><a href="/posts/create">New post</a></li>
+                    <li><a href="/"><img src="/../images/home.png" > Home </a></li>
+                    <li><a href="/posts"><img src="/../images/envelope.png" > Check letterbox </a></li>
+                    <li><a href="/posts/create"><img src="/../images/edit.png" > Send postcard </a></li>
             </ul>
         </nav>
-         <nav class="side">
-             <ul>
-                <li>Topic</li>
-                 <% @topics.each do |topic| %>
-                 <li>
-                    <a href="/posts/topic/<%=topic.topic%>"> 
-                    <%=topic.topic%>
+         <nav>
+             <ul class="origincards">
+                <li class="locale" >Postcards by country: </li>
+                 <% @countries.each do |locale| %>
+                 <li class="locale">
+                    <a href="/posts/origin/<%=locale.country%>"> 
+                    <%=locale.country%>
                     </a>
                 </li>
                 <%end%>
              </ul>
          </nav>
 
-        <div class="content"></div>
-        <footer></footer>
-        <%=yield%>
+        <div class="content">
+            <%=yield%>   
+        </div>
+        <footer>
+            Brought to you by Monday Dreaming &copy;
+        </footer>
     </div>
 </body>
 </html>

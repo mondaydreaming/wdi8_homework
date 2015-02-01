@@ -1,14 +1,16 @@
-<h2>Here is a list of all posts</h2>
+<h2>You've got mail</h2>
 
 <% if @allposts.empty? %>
-    <p>There are no posts yet to display</p>
+    <p>There are no postcards to display yet</p>
 <%end%>
 
 <ul>
     <% @posts.each do |post| %>
         <li>
             <a href="/posts/<%=post.id%>">
-                <%= post.title %>
+                <%= post.created_at.to_time.strftime("%d/%m/%Y")%>
+
+                <%= post.subject %>
             </a> 
         </li>
     <%end%>

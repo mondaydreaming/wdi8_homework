@@ -1,9 +1,11 @@
 CREATE TABLE posts (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT,
-    entry TEXT,
+    sender TEXT,
+    recipient TEXT,
+    subject TEXT,
+    message TEXT,
     image TEXT,
-    topic TEXT,
+    country TEXT,
     created_at TEXT,
     updated_at TEXT
     );
